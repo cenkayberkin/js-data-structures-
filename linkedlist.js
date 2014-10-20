@@ -53,15 +53,22 @@ function LinkedList(){
   this.remove = function(node){
     var tmp = this.head;
     var result = null;
+
     while(tmp != null){
       if(tmp.value == node.value){
         result= tmp;
-        console.log(tmp);
+
         if (tmp.next != null) {
           tmp.next.prev = tmp.prev;
-        }
-        tmp.prev.next = tmp.next;
 
+        }
+
+        if (tmp.prev != null) {
+          tmp.prev.next = tmp.next;
+        } else{
+          this.head = tmp.next;
+        }
+        this.num_elements -= 1;
         break;
       }
       tmp = tmp.next;
@@ -69,14 +76,4 @@ function LinkedList(){
     return result;
   };
 }
-
-var node1 = new Node(1);
-var node2 = new Node(2);
-
-var list = new LinkedList();
-list.insert(node1);
-list.insert(node2);
-// console.log(list);
-// console.log(list.search(2));
-console.log(list.remove(node1));
 
