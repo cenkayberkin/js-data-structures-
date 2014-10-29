@@ -82,7 +82,7 @@ function BinarySearchTree(){
   };
 
   this.depth = function(){
-    return this.depthHelper(this.root);
+    return this.depthHelper(this.root);`
   };
 
   this.balance = function(){
@@ -94,8 +94,3 @@ function BinarySearchTree(){
     }
   };
 }
-
-var btree = new BinarySearchTree();
-
-// console.log(btree.contains(20));
-console.log(btree.balance());
