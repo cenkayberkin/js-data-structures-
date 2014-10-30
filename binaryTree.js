@@ -45,7 +45,9 @@ function BinarySearchTree(){
     if (node == null){
       return [];
     }
-    return this.inorder_traverseHelper(node.left).concat(node.value).concat(this.inorder_traverseHelper(node.right));
+    return this.inorder_traverseHelper(node.left)
+              .concat(node.value)
+              .concat(this.inorder_traverseHelper(node.right));
   };
 
   this.postorder_traverse = function(){
@@ -56,7 +58,9 @@ function BinarySearchTree(){
     if (node == null){
       return [];
     }
-    return this.postorder_traverseHelper(node.left).concat(this.postorder_traverseHelper(node.right)).concat(node.value);
+    return this.postorder_traverseHelper(node.left)
+            .concat(this.postorder_traverseHelper(node.right))
+            .concat(node.value);
   };
 
   this.preorder_traverse = function(){
@@ -67,12 +71,26 @@ function BinarySearchTree(){
     if (node == null){
       return [];
     }
-    return [node.value].concat(this.preorder_traverseHelper(node.left)).concat(this.preorder_traverseHelper(node.right));
+    return [node.value].concat(this.preorder_traverseHelper(node.left))
+                       .concat(this.preorder_traverseHelper(node.right));
   };
 
   this.breadth_first_traverse = function(){
+    var result = [];
+    var q = [];
+    q.push(this.root);
 
-
+    while(q.length > 0){
+      var head = q.shift();
+      result.push(head.value);
+      if (head.left != null){
+        q.push(head.left);
+      }
+      if (head.left != null){
+        q.push(head.right);
+      }
+    }
+    return result;
   };
 
   this.containsHelper = function(node, val){
@@ -119,6 +137,5 @@ function BinarySearchTree(){
     }
   };
 }
-
 
 
