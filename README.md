@@ -1,5 +1,12 @@
+#Binary tree traversal
+- There are 3 types of depth first traversals, and one type of breadth first traversal
+- i have implemented depth first traversal using recursive algorithm and breadth first traversals using a queue and non recursive algorithm.
+
+
+
 js-data-structures-
 ===================
+
 #Double linkedlist implemented.
 ##Features
 - insert(node) will insert the given node at the head of the list.
